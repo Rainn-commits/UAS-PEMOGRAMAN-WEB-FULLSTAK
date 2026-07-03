@@ -68,9 +68,19 @@
                 <p class="stat-label">Customer</p>
                 <p class="stat-value">{{ $users->where('role', 'customer')->count() }}</p>
             </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                        <rect x="2" y="14" width="4" height="7"/>
+                    </svg>
+                </div>
+                <p class="stat-label">Employee</p>
+                <p class="stat-value">{{ $users->where('role', 'employee')->count() }}</p>
+            </div>
         </div>
 
-        {{-- Table Card --}}
         <div class="table-card">
             <div class="table-toolbar">
                 <span class="table-toolbar-title">Semua User</span>
@@ -111,9 +121,7 @@
                             </td>
                             <td>{{ $user->email }}</td>
                             <td>
-                                <span class="badge {{ strtolower($user->role) === 'admin' ? 'badge-admin' : 'badge-customer' }}">
-                                    {{ ucfirst($user->role) }}
-                                </span>
+                                <span class="badge @if(strtolower($user->role) === 'admin') badge-admin @elseif(strtolower($user->role) === 'employee') badge-employee @else badge-customer @endif">{{ ucfirst($user->role) }}</span>
                             </td>
                             <td>
                                 <span class="date-cell">{{ $user->created_at }}</span>

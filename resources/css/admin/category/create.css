@@ -1,6 +1,7 @@
 :root {
     --navy: #1e3a5f;
     --navy-dark: #16293f;
+    --gold-light: #f1c66b;
     --bg: #f4f5f7;
     --card: #ffffff;
     --border: #e6e8ec;
@@ -12,7 +13,7 @@
 
 .cat-page {
     max-width: 800px;
-    margin: 0 auto;
+    margin: -4rem auto 0;
     font-family: var(--font-secondary);
 }
 
